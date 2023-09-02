@@ -2,38 +2,60 @@
 
 Public Class CalculateLibrary
 
-    'code from a common library
-    Sub New()
-        IsActive = True
-        ModifiedDate = DateTime.Now
-        CreatedBy = Environment.UserName
-    End Sub
+    'private fields to hold calculated values
+    Private _value1 As Double = 0
+    Private _value2 As Double = 0
+    Private _result As Double = 0
+    Private _index1 As Integer = 0
+    Private _index2 As Integer = 0
 
-    Dim value1, value2, result As Double
-    Dim index1 As Integer = 0
-    Dim index2 As Integer = 0
+    'property's for data hiding 
+    Public Property ChangeValue1 As Double
+        Get
+            Return _value1
+        End Get
+        Set(value As Double)
+            _value1 = value
+        End Set
+    End Property
 
-    Public Property IsActive As Boolean
-        Public Property ModifiedDate As DateTime
-        Public Property CreatedBy As String
+    Public Property ChangeValue2 As Double
+        Get
+            Return _value2
+        End Get
+        Set(value As Double)
+            _value2 = value
+        End Set
+    End Property
 
-        Public Overrides Function ToString() As String
-            Return GetClassData()
-        End Function
+    Public Property ChangeResult As Double
+        Get
+            Return _result
+        End Get
+        Set(value As Double)
+            _result = value
+        End Set
+    End Property
 
-    Protected Overridable Function GetClassData() As String
-        Dim sb As New StringBuilder(1024)
+    Public Property ChangeIndex1 As Integer
+        Get
+            Return _index1
+        End Get
+        Set(value As Integer)
+            _index1 = value
+        End Set
+    End Property
 
-        sb.AppendLine("Is Active: " + IsActive.ToString())
-        sb.AppendLine("Modified Date: " + ModifiedDate.ToLongDateString())
-        sb.AppendLine("Created By: " + CreatedBy)
-
-        Return sb.ToString()
-    End Function
+    Public Property ChangeIndex2 As Integer
+        Get
+            Return _index2
+        End Get
+        Set(value As Integer)
+            _index2 = value
+        End Set
+    End Property
 
 End Class
-
-'code from a calculator app
 
 'Public Class Form1
 '    Dim value1, value2, result As Double
